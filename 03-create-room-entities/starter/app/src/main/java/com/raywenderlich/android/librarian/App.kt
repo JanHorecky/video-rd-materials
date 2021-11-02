@@ -36,6 +36,8 @@ package com.raywenderlich.android.librarian
 
 import android.app.Application
 import com.raywenderlich.android.librarian.database.LibrarianDatabase
+import com.raywenderlich.android.librarian.repository.LibrarianRepository
+import com.raywenderlich.android.librarian.repository.LibrarianRepositoryImpl
 
 class App : Application() {
 
@@ -47,6 +49,14 @@ class App : Application() {
 
     }
   }
+    val repository: LibrarianRepository by lazy {
+      LibrarianRepositoryImpl(
+        database.bookDao(),
+        database.genreDao(),
+        database.readingListDao(),
+        database.reviewDao()
+      )
+    }
 
   override fun onCreate() {
     super.onCreate()
