@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
@@ -31,7 +29,6 @@ android {
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  def room_version = "2.2.5"
 
   // Kotlin
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -47,4 +44,8 @@ dependencies {
   // TUTORIAL DEPENDENCIES HERE
   implementation 'com.github.bumptech.glide:glide:4.11.0'
   kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+
+
+
 }
