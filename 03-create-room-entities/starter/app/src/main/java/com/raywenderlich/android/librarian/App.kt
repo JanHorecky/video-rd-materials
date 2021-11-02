@@ -48,7 +48,7 @@ class App : Application() {
       LibrarianDatabase.buildDatabase(instance)
 
     }
-  }
+
     val repository: LibrarianRepository by lazy {
       LibrarianRepositoryImpl(
         database.bookDao(),
@@ -57,6 +57,8 @@ class App : Application() {
         database.reviewDao()
       )
     }
+  }
+
 
   override fun onCreate() {
     super.onCreate()

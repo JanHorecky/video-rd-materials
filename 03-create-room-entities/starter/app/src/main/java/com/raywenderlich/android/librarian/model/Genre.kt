@@ -41,7 +41,7 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-@Entity(tableName = "genres")
+@Entity
 class Genre(
     @PrimaryKey
     val id: String = UUID.randomUUID().toString(),
