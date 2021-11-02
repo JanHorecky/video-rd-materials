@@ -14,4 +14,6 @@ interface LibrarianRepository {
 
     fun getGenreById(GenreId: String): Genre
 
+    fun addGenres(genre: List<Genre>)
+
 }
