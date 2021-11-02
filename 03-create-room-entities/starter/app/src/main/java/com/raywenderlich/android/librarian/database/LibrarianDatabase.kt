@@ -34,11 +34,11 @@ abstract class LibrarianDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun bookDao():BookDao
+    abstract fun bookDao(): BookDao
 
     abstract fun genreDao():GenreDao
 
-    abstract fun readingListDao():ReadingListDao
+    abstract fun readingListDao(): ReadingListDao
 
-    abstract fun reviewDao():ReviewDao
+    abstract fun reviewDao(): ReviewDao
 }
