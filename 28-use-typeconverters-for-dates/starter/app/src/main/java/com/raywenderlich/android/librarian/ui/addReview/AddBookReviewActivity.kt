@@ -41,11 +41,13 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.room.TypeConverters
 import com.raywenderlich.android.librarian.App
 import com.raywenderlich.android.librarian.R
 import com.raywenderlich.android.librarian.model.Review
 import kotlinx.android.synthetic.main.activity_add_book_review.*
 import kotlinx.coroutines.launch
+import java.util.*
 
 class AddBookReviewActivity : AppCompatActivity() {
 
@@ -86,9 +88,9 @@ class AddBookReviewActivity : AppCompatActivity() {
           bookId = bookId,
           rating = rating,
           notes = notes,
-          imageUrl = imageUrl
+          imageUrl = imageUrl,
+          lastUpdatedDate = Date()
 //          entries = emptyList(),
-//          lastUpdatedDate = Date()
       )
 
       repository.addReview(bookReview)
