@@ -47,4 +47,12 @@ interface GenreDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
   fun addGenres(genres: List<Genre>)
+
+  @Transaction
+  @Query("SELECT * FROM genre WHERE id = :genreId")
+  fun getBooksByGenre(genreId: String): BooksByGenre
+
+  @Transaction
+  @Query("SELECT * FROM genre")
+  fun getBooksByGenres(): List<BooksByGenre>
 }

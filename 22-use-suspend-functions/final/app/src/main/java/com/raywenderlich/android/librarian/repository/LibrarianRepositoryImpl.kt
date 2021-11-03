@@ -75,14 +75,14 @@ class LibrarianRepositoryImpl(
 
   override fun updateReview(review: Review) = reviewDao.updateReview(review)
 
-  override fun addReadingList(readingList: ReadingList) = readingListDao.addReadingList(readingList)
+  override suspend fun addReadingList(readingList: ReadingList) = readingListDao.addReadingList(readingList)
 
-  override fun getReadingLists(): List<ReadingListsWithBooks> =
+  override suspend fun getReadingLists(): List<ReadingListsWithBooks> =
       readingListDao.getReadingLists().map {
         ReadingListsWithBooks(it.id, it.name, emptyList())
       }
 
-  override fun removeReadingList(readingList: ReadingList) =
+  override suspend fun removeReadingList(readingList: ReadingList) =
       readingListDao.removeReadingList(readingList)
 
   override fun getBooksByGenre(genreId: String): List<BookAndGenre> =
