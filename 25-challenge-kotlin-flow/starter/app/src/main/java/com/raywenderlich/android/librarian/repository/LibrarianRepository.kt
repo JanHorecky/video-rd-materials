@@ -78,4 +78,6 @@ interface LibrarianRepository {
   suspend fun getBooksByGenre(genreId: String): List<BookAndGenre>
 
   suspend fun getBooksByRating(rating: Int): List<BookAndGenre>
+
+  fun getReadingListsFlow(): Flow<List<ReadingListsWithBooks>>
 }

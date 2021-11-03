@@ -44,6 +44,7 @@ import com.raywenderlich.android.librarian.model.relations.BookAndGenre
 import com.raywenderlich.android.librarian.model.relations.BookReview
 import com.raywenderlich.android.librarian.model.relations.ReadingListsWithBooks
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class LibrarianRepositoryImpl(
     private val bookDao: BookDao,
@@ -100,4 +101,11 @@ class LibrarianRepositoryImpl(
 
     return reviewsByRating.map { BookAndGenre(it.book, genreDao.getGenreById(it.book.genreId)) }
   }
+
+    override fun getReadingListsFlow(): Flow<List<ReadingListsWithBooks>> =
+        readingListDao.getReadingListsFlow().map { items ->
+            items.map {
+                ReadingListsWithBooks(it.id, it.name, emptyList())
+            }
+        }
 }

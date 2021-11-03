@@ -33,8 +33,10 @@
  */package com.raywenderlich.android.librarian.database.dao
 
 import androidx.room.*
+import com.raywenderlich.android.librarian.model.Book
 import com.raywenderlich.android.librarian.model.Review
 import com.raywenderlich.android.librarian.model.relations.BookReview
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ReviewDao {
@@ -47,6 +49,10 @@ interface ReviewDao {
 
   @Query("SELECT * FROM review")
   fun getReviews(): List<BookReview>
+
+  @Transaction
+  @Query("SELECT * FROM review")
+  fun getReviewsFlow(): Flow<List<BookReview>>
 
   @Query("SELECT * FROM review WHERE id = :reviewId")
   fun getReviewById(reviewId: String): BookReview
